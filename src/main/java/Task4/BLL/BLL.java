@@ -128,12 +128,6 @@ public class BLL {
         return addingStoryPage.getTextErrorMessageByIndex(0);
     }
 
-    public boolean checkAddingStoryWithInvalidEmail(final long waitTime, final String expectedError){
-        getAddingStoryPage().waitVisibilityOfElementLocated(waitTime, getAddingStoryPage().getErrorMessagesXPath());
-
-        return expectedError.equals(getAddingStoryPage().getTextErrorMessageByIndex(0));
-    }
-
     private WebDriver getDriver(){
         return driver;
     }
