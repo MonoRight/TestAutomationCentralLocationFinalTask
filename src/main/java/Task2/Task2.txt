@@ -1,0 +1,1 @@
+Implemented tests are in src/test/java/Task2 because used simple test building.

@@ -1,73 +1,131 @@
-package Task3.pages;
+package Task4.BLL;
 
+import Task4.pages.*;
+import Task4.manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BLL {
-
     private WebDriver driver;
+    private HomePage homePage;
+    private AddingStoryPage addingStoryPage;
+    private CoronavirusStoriesPage coronavirusStoriesPage;
+    private CoronavirusNewsPage coronavirusNewsPage;
+    private NewsPage newsPage;
+    private ResultSearchingPage resultSearchingPage;
+    private SearchPage searchPage;
+    private PageFactoryManager pageFactoryManager;
     public BLL(WebDriver driver){
         this.driver = driver;
+        pageFactoryManager = new PageFactoryManager(driver);
+    }
+
+    public void openPage(final String url) {
+        homePage = pageFactoryManager.getHomePage();
+        homePage.openHomePage(url);
+    }
+
+    public void clickNewsButton(final long waitTime){
+        homePage.waitVisibilityOfElement(waitTime, homePage.getNewsCategory());
+        homePage.clickTheWebElement(homePage.getNewsCategory());
     }
 
     public String getTextOfMainArticle(final long waitTime, final int index){
-        getHomePage().clickTheWebElement(getHomePage().getNewsCategory());
-
-        return getNewsPage().waitVisibilityOfElement(waitTime, getNewsPage().getTitleByIndex(index)).getText();
+        newsPage = pageFactoryManager.getNewsPage();
+        newsPage.waitVisibilityOfElement(waitTime, newsPage.getTitleByIndex(index));
+        return newsPage.getTextTitleByIndex(index);
     }
 
-    public boolean checksSecondaryArticles(final String secondaryArticle, final int index){
-        getHomePage().clickTheWebElement(getHomePage().getNewsCategory());
-
-        return secondaryArticle.equals(getNewsPage().getTextSecondaryTitleByIndex(index));
+    public List<String> separateStringToList(final String totalStr){
+        return Arrays.asList(totalStr.split("\\s*;\\s*"));
     }
 
-    public String getTextArticleAfterSearching(final int index){
-        getHomePage().clickTheWebElement(getHomePage().getNewsCategory());
-        String searchText = getNewsPage().getTextCoronavirusSelection();
-        getNewsPage().clickTheWebElement(getNewsPage().getSearchButton());
-        getSearchPage().enterInput(getSearchPage().getSearchInput(), searchText);
-        getSearchPage().clickTheWebElement(getSearchPage().getSearchButton());
-
-        return getResultSearchingPage().getTextSearchTitleByIndex(index);
+    public String getTextOfSecondaryArticleByIndex(final long waitTime, final int index){
+        newsPage = pageFactoryManager.getNewsPage();
+        newsPage.waitVisibilityOfElement(waitTime, newsPage.getSecondaryTitleByIndex(index));
+        return newsPage.getTextSecondaryTitleByIndex(index);
     }
 
-    public void goToCoronavirusAddingStoriesPage(final long waitTime, final int index){
-        getHomePage().clickTheWebElement(getHomePage().getNewsCategory());
-        getNewsPage().clickTheWebElement(getNewsPage().getCoronavirusSelection());
-        getCoronavirusNewsPage().clickTheWebElement(getCoronavirusNewsPage().getCoronavirusStoryByIndex(index));
-        getCoronavirusStoriesPage().scrollToElement(getCoronavirusStoriesPage().getShareCoronavirusStory());
-        getCoronavirusStoriesPage().clickTheWebElementByJS(getCoronavirusStoriesPage().getShareCoronavirusStory());
-        getAddingStoryPage().waitForPageLoadComplete(waitTime);
-        getAddingStoryPage().waitVisibilityOfElementLocated(waitTime, getAddingStoryPage().getClosePopUpWindowButtonXPath());
-        getAddingStoryPage().clickTheWebElement(getAddingStoryPage().getClosePopUpWindowButton());
+    public String getTextCoronavirusSelection(final long waitTime){
+        newsPage = pageFactoryManager.getNewsPage();
+        newsPage.waitVisibilityOfElement(waitTime, newsPage.getSearchButton());
+        return newsPage.getTextCoronavirusSelection();
     }
 
-    public void fillingStoryFrom(final List<String> values){
-        getAddingStoryPage().scrollToElement(getAddingStoryPage().getAddStoryFormContainer());
-        Form.FillForm(getAddingStoryPage(), getAddingStoryPage().getFormFields(), values);
+    public void clickSearchButton(){
+        newsPage.clickTheWebElement(newsPage.getSearchButton());
     }
+
+    public void insertTextToSearchInput(final String searchText){
+        searchPage = pageFactoryManager.getSearchPage();
+        searchPage.enterInput(searchPage.getSearchInput(), searchText);
+    }
+
+    public void clickSearchRequestButton(){
+        searchPage.clickTheWebElement(searchPage.getSearchButton());
+    }
+
+    public String getTextArticleAfterSearchingByIndex(final long waitTime, final int index){
+        resultSearchingPage = pageFactoryManager.getResultSearchingPage();
+        resultSearchingPage.waitForPageLoadComplete(waitTime);
+        resultSearchingPage.scrollToElement(resultSearchingPage.getSearchTitleByIndex(index));
+
+        return resultSearchingPage.getTextSearchTitleByIndex(index);
+    }
+
+    public void clickCoronavirusSelection(){
+        newsPage = pageFactoryManager.getNewsPage();
+        newsPage.clickTheWebElement(newsPage.getCoronavirusSelection());
+    }
+
+    public void clickCoronavirusStoriesSelection(final int index){
+        coronavirusNewsPage = pageFactoryManager.getCoronavirusNewsPage();
+        coronavirusNewsPage.clickTheWebElement(coronavirusNewsPage.getCoronavirusStoryByIndex(index));
+    }
+
+    public void clickShareCoronavirusStoryArticle(){
+        coronavirusStoriesPage = pageFactoryManager.getCoronavirusStoriesPage();
+        coronavirusStoriesPage.scrollToElement(coronavirusStoriesPage.getShareCoronavirusStory());
+        coronavirusStoriesPage.clickTheWebElementByJS(coronavirusStoriesPage.getShareCoronavirusStory());
+    }
+
+    public void closePopUpWindow(final long waitTime){
+        addingStoryPage = pageFactoryManager.getAddingStoryPage();
+        addingStoryPage.waitForPageLoadComplete(waitTime);
+        addingStoryPage.waitVisibilityOfElementLocated(waitTime, addingStoryPage.getClosePopUpWindowButtonXPath());
+        addingStoryPage.clickTheWebElement(addingStoryPage.getClosePopUpWindowButton());
+    }
+
+    public void fillStoryForm(final List<String> values){
+        addingStoryPage.scrollToElement(addingStoryPage.getAddStoryFormContainer());
+        Form.FillForm(addingStoryPage, addingStoryPage.getFormFields(), values);
+    }
+
+    public void clickAcceptTermsCheckBox(){
+        addingStoryPage.clickTheWebElement(addingStoryPage.getAcceptTermsCheckBox());
+    }
+
     public void clickSubmitButton(){
-        getAddingStoryPage().clickTheWebElement(getAddingStoryPage().getSendStoryButton());
-    }
-    public void acceptTermsCheckBox(){
-        getAddingStoryPage().clickTheWebElement(getAddingStoryPage().getAcceptTermsCheckBox());
+        addingStoryPage.clickTheWebElement(addingStoryPage.getSendStoryButton());
     }
 
-    public boolean checkAddingStory(final long waitTime, final String expectedFirstParagraph, final String expectedSecondParagraph){
-        getAddingStoryPage().waitVisibilityOfElementLocated(waitTime, getAddingStoryPage().getResultParagraphsAfterAddingStoryXPath());
-        return expectedFirstParagraph.equals(getAddingStoryPage().getTextResultParagraphByIndex(0)) && expectedSecondParagraph.equals(getAddingStoryPage().getTextResultParagraphByIndex(1));
+    public String getResultParagraphAfterAddingStory(final long waitTime, final int index){
+        addingStoryPage.waitVisibilityOfElementLocated(waitTime, addingStoryPage.getResultParagraphsAfterAddingStoryXPath());
+        return addingStoryPage.getTextResultParagraphByIndex(index);
     }
 
-    public boolean checkAddingStoryWithEmptyFields(final long waitTime, final List<String> expectedErrors){
-        getAddingStoryPage().waitVisibilityOfAllElementsLocatedBy(waitTime, getAddingStoryPage().getErrorMessagesXPath());
+    public String getErrorsAfterAddingStoryWIthEmptyFields(final long waitTime, final int index){
+        addingStoryPage.waitVisibilityOfAllElementsLocatedBy(waitTime, getAddingStoryPage().getErrorMessagesXPath());
+        return addingStoryPage.getTextErrorMessageByIndex(index);
+    }
 
-        for(int i = 0; i < expectedErrors.size(); i++){
-            if(!expectedErrors.get(i).equals(getAddingStoryPage().getTextErrorMessageByIndex(i))){
-                return false;
-            }
-        }
-        return true;
+    public String getErrorAfterAddingStoryWithInvalidEmail(final long waitTime){
+        addingStoryPage.waitVisibilityOfElementLocated(waitTime, addingStoryPage.getErrorMessagesXPath());
+
+        return addingStoryPage.getTextErrorMessageByIndex(0);
     }
 
     public boolean checkAddingStoryWithInvalidEmail(final long waitTime, final String expectedError){

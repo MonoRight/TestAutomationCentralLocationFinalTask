@@ -4,11 +4,68 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a385484a-27fb-42ad-8cbd-2a461054c1cc" name="Changes" comment="" />
+    <list default="true" id="a385484a-27fb-42ad-8cbd-2a461054c1cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/rainb.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task1/Task1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task2/Task2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/AddingStoryPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/BLL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/BasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/CoronavirusNewsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/CoronavirusStoriesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/Form.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/NewsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/ResultSearchingPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task3/pages/SearchPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/BLL/BLL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/BLL/Form.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/definitionsteps/DefinitionSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/manager/PageFactoryManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/AddingStoryPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/BasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/CoronavirusNewsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/CoronavirusStoriesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/NewsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/ResultSearchingPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Task4/pages/SearchPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/chromedriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testsFinalTask.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task1/BBC1Tests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task1/Test Results - BBC1Tests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task2/BBC1Tests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task2/Test Results - BBC1Tests_(1).html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task3/AddStoryTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task3/ArticlesTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task3/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task3/Test Results - AddStoryTests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task3/Test Results - ArticlesTests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Task4/RunnerTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$/src/test/java/Task3" openResultsInEditor="true" userTempatePath="" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="290wHV8ORTfZwAIjkN63sst5nTH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -19,9 +76,125 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/rainb/Desktop/EpamAQA/AQA HT/TestAutomationCentralLocationFinalTask/src/main/java/Task4/BLL",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rainb\Desktop\EpamAQA\AQA HT\TestAutomationCentralLocationFinalTask\src\main\java\Task4\BLL" />
+      <recent name="C:\Users\rainb\Desktop\EpamAQA\AQA HT\TestAutomationCentralLocationFinalTask\src\main\java\Task4\pages" />
+      <recent name="C:\Users\rainb\Desktop\EpamAQA\AQA HT\TestAutomationCentralLocationFinalTask\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RunnerTests">
+    <configuration name="Scenario: Check first &lt;count&gt; secondary articles" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/testsFinalTask.feature" />
+      <option name="GLUE" value="Task4.definitionsteps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="TestAutomationCentralLocationFinalTask" />
+      <option name="NAME_FILTER" value="^Check first .* secondary articles$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check first .* secondary articles$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check first &lt;count&gt; secondary articles" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Check sending story with correct data" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/testsFinalTask.feature" />
+      <option name="GLUE" value="Task4.definitionsteps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="TestAutomationCentralLocationFinalTask" />
+      <option name="NAME_FILTER" value="^Check sending story with correct data$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check sending story with correct data$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check sending story with correct data" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Check sending story with empty data" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/testsFinalTask.feature" />
+      <option name="GLUE" value="Task4.definitionsteps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="TestAutomationCentralLocationFinalTask" />
+      <option name="NAME_FILTER" value="^Check sending story with empty data$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check sending story with empty data$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check sending story with empty data" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Check sending story with invalid email" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/testsFinalTask.feature" />
+      <option name="GLUE" value="Task4.definitionsteps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="TestAutomationCentralLocationFinalTask" />
+      <option name="NAME_FILTER" value="^Check sending story with invalid email$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Check sending story with invalid email$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Check sending story with invalid email" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunnerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TestAutomationCentralLocationFinalTask" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Task4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Task4" />
+      <option name="MAIN_CLASS_NAME" value="Task4.RunnerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RunnerTests" />
+        <item itemvalue="Cucumber Java.Scenario: Check sending story with invalid email" />
+        <item itemvalue="Cucumber Java.Scenario: Check sending story with empty data" />
+        <item itemvalue="Cucumber Java.Scenario: Check sending story with correct data" />
+        <item itemvalue="Cucumber Java.Scenario: Check first &lt;count&gt; secondary articles" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -43,5 +216,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

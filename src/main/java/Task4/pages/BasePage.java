@@ -1,4 +1,4 @@
-package Task3.pages;
+package Task4.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

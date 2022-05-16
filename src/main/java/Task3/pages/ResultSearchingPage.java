@@ -20,4 +20,7 @@ public class ResultSearchingPage extends BasePage{
     public WebElement getSearchTitleByIndex(int index){
         return getSearchTitlesList().get(index);
     }
+    public String getTextSearchTitleByIndex(int index){
+        return getSearchTitleByIndex(index).getText();
+    }
 }

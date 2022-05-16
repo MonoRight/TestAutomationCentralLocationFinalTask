@@ -1,4 +1,4 @@
-package Task3.pages;
+package Task4.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddingStoryPage extends BasePage{
+public class AddingStoryPage extends BasePage {
     @FindBy(xpath = "//div[@class='embed-content-container']")
     private WebElement addStoryFormContainer;
     @FindBy(xpath = "//textarea[@class='text-input--long']")

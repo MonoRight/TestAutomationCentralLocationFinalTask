@@ -1,10 +1,10 @@
-package Task3.pages;
+package Task4.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
     @FindBy(xpath = "//nav[@class='orbit-header-links international']//span[text()='News']")
     private WebElement newsCategory;
 
@@ -15,6 +15,10 @@ public class HomePage extends BasePage{
 
     public WebElement getNewsCategory(){
         return newsCategory;
+    }
+
+    public void openHomePage(String url) {
+        driver.get(url);
     }
 
 }

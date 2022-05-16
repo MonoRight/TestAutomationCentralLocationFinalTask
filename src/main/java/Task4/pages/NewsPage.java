@@ -1,13 +1,12 @@
-package Task3.pages;
+package Task4.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 import java.util.List;
 
-public class NewsPage extends BasePage{
+public class NewsPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'top-stories-primary')]//h3[contains(@class, 'promo-heading__title')]")
     private List<WebElement> titleList;
     @FindBy(xpath = "//a[@class='gs-c-promo-heading gs-o-faux-block-link__overlay-link gel-pica-bold nw-o-link-split__anchor']")
@@ -26,6 +25,9 @@ public class NewsPage extends BasePage{
     }
     public WebElement getTitleByIndex(int index){
         return getTitleList().get(index);
+    }
+    public String getTextTitleByIndex(int index){
+        return getTitleByIndex(index).getText();
     }
     public List<WebElement> getSecondaryTitlesList(){
         return secondaryTitlesList;

@@ -1,4 +1,4 @@
-package Task3.pages;
+package Task4.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CoronavirusNewsPage extends BasePage{
+public class CoronavirusNewsPage extends BasePage {
     @FindBy(xpath = "//header//span[contains(text(), 'Your Coronavirus')]")
     private List<WebElement> coronavirusStoriesList;
 

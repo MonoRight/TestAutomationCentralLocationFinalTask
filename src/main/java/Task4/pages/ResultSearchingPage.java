@@ -1,4 +1,4 @@
-package Task3.pages;
+package Task4.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class ResultSearchingPage extends BasePage{
+public class ResultSearchingPage extends BasePage {
     @FindBy(xpath = "//span[@role='text']//span")
     private List<WebElement> searchTitlesList;
 
