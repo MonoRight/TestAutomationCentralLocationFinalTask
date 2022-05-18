@@ -2,11 +2,16 @@ package Task4.BLL;
 
 import Task4.pages.*;
 import Task4.manager.PageFactoryManager;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static java.lang.Thread.sleep;
 
 public class BLL {
     private WebDriver driver;
@@ -17,10 +22,19 @@ public class BLL {
     private NewsPage newsPage;
     private ResultSearchingPage resultSearchingPage;
     private SearchPage searchPage;
+    private SportPage sportPage;
+    private FootballNewsPage footballNewsPage;
+    private FootballScoresAndFixturesPage footballScoresAndFixturesPage;
+    private MatchResultPage matchResultPage;
     private PageFactoryManager pageFactoryManager;
+    private Score score = null;
     public BLL(WebDriver driver){
         this.driver = driver;
         pageFactoryManager = new PageFactoryManager(driver);
+    }
+
+    private WebDriver getDriver(){
+        return driver;
     }
 
     public void openPage(final String url) {
@@ -39,7 +53,7 @@ public class BLL {
         return newsPage.getTextTitleByIndex(index);
     }
 
-    public List<String> separateStringToList(final String totalStr){
+    public List<String> separateStringToList(final @NotNull String totalStr){
         return Arrays.asList(totalStr.split("\\s*;\\s*"));
     }
 
@@ -118,7 +132,7 @@ public class BLL {
     }
 
     public String getErrorsAfterAddingStoryWIthEmptyFields(final long waitTime, final int index){
-        addingStoryPage.waitVisibilityOfAllElementsLocatedBy(waitTime, getAddingStoryPage().getErrorMessagesXPath());
+        addingStoryPage.waitVisibilityOfAllElementsLocatedBy(waitTime, addingStoryPage.getErrorMessagesXPath());
         return addingStoryPage.getTextErrorMessageByIndex(index);
     }
 
@@ -128,28 +142,77 @@ public class BLL {
         return addingStoryPage.getTextErrorMessageByIndex(0);
     }
 
-    private WebDriver getDriver(){
-        return driver;
+    public void clickSportButton(final long waitTime){
+        homePage.waitVisibilityOfElement(waitTime, homePage.getSportCategory());
+        homePage.clickTheWebElement(homePage.getSportCategory());
     }
-    private HomePage getHomePage(){
-        return new HomePage(getDriver());
+
+    public void clickFootballSection(final long waitTime, final int index){
+        sportPage = pageFactoryManager.getSportPage();
+        sportPage.waitVisibilityOfElement(waitTime, sportPage.getFootballSectionByIndex(index));
+        sportPage.clickTheWebElement(sportPage.getFootballSectionByIndex(index));
     }
-    private NewsPage getNewsPage(){
-        return new NewsPage(getDriver());
+
+    public void clickScoresFixturesSection(final long waitTime){
+        footballNewsPage = pageFactoryManager.getFootballNewsPage();
+        footballNewsPage.waitVisibilityOfElement(waitTime, footballNewsPage.getScoresAndFixturesSelection());
+        footballNewsPage.clickTheWebElement(footballNewsPage.getScoresAndFixturesSelection());
     }
-    private ResultSearchingPage getResultSearchingPage(){
-        return new ResultSearchingPage(getDriver());
+
+    public void enterTeamOrCompetitionInput(final long waitTime, final String competition){
+        footballScoresAndFixturesPage = pageFactoryManager.getFootballScoresAndFixtures();
+        footballScoresAndFixturesPage.waitVisibilityOfElement(waitTime, footballScoresAndFixturesPage.getSearchInputCompetitions());
+        footballScoresAndFixturesPage.enterInput(footballScoresAndFixturesPage.getSearchInputCompetitions(), competition);
     }
-    private SearchPage getSearchPage(){
-        return new SearchPage(getDriver());
+
+    public void chooseFromTheDropDownList(final long waitTime, final int index){
+        footballScoresAndFixturesPage.waitVisibilityOfElement(waitTime, footballScoresAndFixturesPage.getSearchResultListByIndex(index));
+        footballScoresAndFixturesPage.scrollToElement(footballScoresAndFixturesPage.getSearchResultListByIndex(index));
+        footballScoresAndFixturesPage.clickTheWebElement(footballScoresAndFixturesPage.getSearchResultListByIndex(index));
     }
-    private CoronavirusNewsPage getCoronavirusNewsPage(){
-        return new CoronavirusNewsPage(getDriver());
+
+    public void selectMonthAndYearOfCompetition(final long waitTime, final String month, final String year) {
+        footballScoresAndFixturesPage.waitForPageLoadComplete(waitTime);
+
+        WebElement monthAndYearWebElement = null;
+        for(int i = 0; i < footballScoresAndFixturesPage.getYearAndMonthSelectList().size(); i++){
+            if(footballScoresAndFixturesPage.getTextYearByIndex(i).equals(year) && footballScoresAndFixturesPage.getTextMonthByIndex(i).equals(month)){
+                            monthAndYearWebElement = footballScoresAndFixturesPage.getYearAndMonthSelectByIndex(i);
+                            break;
+            }
+        }
+
+        if(monthAndYearWebElement != null){
+            footballScoresAndFixturesPage.clickTheWebElement(monthAndYearWebElement);
+        }
+        else throw new WebDriverException("Element was not found with such year and month");
     }
-    private CoronavirusStoriesPage getCoronavirusStoriesPage(){
-        return new CoronavirusStoriesPage(getDriver());
+
+    public void clickMatchWithSpecifiedTeamsAndScore(final long waitTime, final String team1, final String team2, final int score1, final int score2){
+        footballScoresAndFixturesPage.waitForPageLoadComplete(waitTime);
+        footballScoresAndFixturesPage.waitVisibilityOfAllElementsLocatedBy(waitTime, footballScoresAndFixturesPage.getTeamsListXPath());
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+        score = scoreBoard.GetScore(footballScoresAndFixturesPage, team1, team2);
+
+        if(score1 == score.getScoreTeam1() && score2 == score.getScoreTeam2()){
+            for(int i = 0; i < footballScoresAndFixturesPage.getTeamsList().size() - 1; i++){
+                if(footballScoresAndFixturesPage.getTextTeamByIndex(i).equals(team1) && footballScoresAndFixturesPage.getTextTeamByIndex(i + 1).equals(team2)){
+                    footballScoresAndFixturesPage.scrollToElement(footballScoresAndFixturesPage.getTeamByIndex(i));
+                    footballScoresAndFixturesPage.clickTheWebElement(footballScoresAndFixturesPage.getTeamByIndex(i));
+                }
+            }
+        }
+        else throw new WebDriverException("Found scores are not similar as in tests");
     }
-    private AddingStoryPage getAddingStoryPage(){
-        return new AddingStoryPage(getDriver());
+
+    public boolean compareDisplayedScoresWithPreviousPageAndSpecifiedScores(final long waitTime, final int score1, final int score2){
+        matchResultPage = pageFactoryManager.getMatchResultPage();
+        matchResultPage.waitForPageLoadComplete(waitTime);
+
+        matchResultPage.waitVisibilityOfAllElementsLocatedBy(waitTime, matchResultPage.getResultScoresListXPath());
+        return matchResultPage.getIntResultScoreByIndex(0) == score1 &&  matchResultPage.getIntResultScoreByIndex(0) == score.getScoreTeam1() &&
+                matchResultPage.getIntResultScoreByIndex(1) == score2 && matchResultPage.getIntResultScoreByIndex(1) == score.getScoreTeam2();
     }
+
 }

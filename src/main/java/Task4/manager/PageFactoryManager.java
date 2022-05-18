@@ -37,4 +37,16 @@ public class PageFactoryManager {
     public SearchPage getSearchPage(){
         return new SearchPage(driver);
     }
+    public SportPage getSportPage(){
+        return new SportPage(driver);
+    }
+    public FootballNewsPage getFootballNewsPage(){
+        return new FootballNewsPage(driver);
+    }
+    public FootballScoresAndFixturesPage getFootballScoresAndFixtures(){
+        return new FootballScoresAndFixturesPage(driver);
+    }
+    public MatchResultPage getMatchResultPage(){
+        return new MatchResultPage(driver);
+    }
 }

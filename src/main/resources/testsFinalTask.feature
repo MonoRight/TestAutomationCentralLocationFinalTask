@@ -3,6 +3,8 @@ Feature: FinalTask BBC1 testing functionality
   I want to test few functions of the site
   So that I can be sure that site works correctly
 
+
+  ###BBC1
   Scenario Outline: Check main article on the site
     Given User opens "<homePage>" page
     When User clicks 'News' button
@@ -74,3 +76,27 @@ Feature: FinalTask BBC1 testing functionality
     Examples:
       | homePage             | index | story                                             | name   | email          | number       | location      | message                  |
       | https://www.bbc.com/ | 0     | Sorry for interruption, its just testing form :^) | Dmytro | incorrectemail | 123123123123 | Ukraine, Kyiv | Email address is invalid |
+
+    ###BBC2
+  Scenario Outline: Check scores of football match with specified teams, championship, year and month
+    Given User opens "<homePage>" page
+    And User clicks 'Sport' button
+    And User clicks on <index> 'Football' section
+    And User clicks on 'Scores & Fixtures' section
+    And User enters "<championship>" in 'Enter a team or competition' input
+    And User chooses <index> from the drop down list
+    And User select "<month>" and "<year>" of competition
+    When User finds match between "<team1>" and "<team2>" with score for first team - <score1>, and score for second team - <score2>
+    Then User compares displayed scores with scores from previous page and specified scores: <score1>, <score2>
+    Examples:
+      | homePage             | index | championship             | month | year | team1             | team2                        | score1 | score2 |
+      | https://www.bbc.com/ | 0     | Scottish Championship    | JUL   | 2021 | Arbroath          | Inverness Caledonian Thistle | 0      | 1      |
+      | https://www.bbc.com/ | 0     | EUROPA LEAGUE            | FEB   | 2022 | Borussia Dortmund | Rangers                      | 2      | 4      |
+      | https://www.bbc.com/ | 0     | Europa Conference League | JUL   | 2021 | Linfield          | Borac Banja Luka             | 4      | 0      |
+      | https://www.bbc.com/ | 0     | Africa Cup of Nations    | JAN   | 2022 | Egypt             | Morocco                      | 2      | 1      |
+      | https://www.bbc.com/ | 0     | French Coupe de France   | JAN   | 2022 | Vannes            | Paris Saint Germain          | 0      | 4      |
+
+
+
+
+

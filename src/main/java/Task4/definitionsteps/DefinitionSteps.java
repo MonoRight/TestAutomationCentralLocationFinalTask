@@ -16,6 +16,7 @@ import java.util.List;
 
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DefinitionSteps {
     private static final long DEFAULT_TIMEOUT = 60;
@@ -140,5 +141,45 @@ public class DefinitionSteps {
     @Then("User checks error {string} because of invalid email")
     public void userChecksErrorBecauseOfInvalidEmail(final String errorEmail) {
         assertEquals(errorEmail, businessLogicLayer.getErrorAfterAddingStoryWithInvalidEmail(DEFAULT_TIMEOUT));
+    }
+
+    @And("User clicks 'Sport' button")
+    public void userClicksSportButton() {
+        businessLogicLayer.clickSportButton(DEFAULT_TIMEOUT);
+    }
+
+    @And("User clicks on {int} 'Football' section")
+    public void userClicksOnFootballSection(final int index) {
+        businessLogicLayer.clickFootballSection(DEFAULT_TIMEOUT, index);
+    }
+
+    @And("User clicks on 'Scores & Fixtures' section")
+    public void userClicksOnScoresFixturesSection() {
+        businessLogicLayer.clickScoresFixturesSection(DEFAULT_TIMEOUT);
+    }
+
+    @And("User enters {string} in 'Enter a team or competition' input")
+    public void userEntersInEnterATeamOrCompetitionInput(final String competition) {
+        businessLogicLayer.enterTeamOrCompetitionInput(DEFAULT_TIMEOUT, competition);
+    }
+
+    @And("User chooses {int} from the drop down list")
+    public void userChoosesIndexFromTheDropDownList(final int index) {
+        businessLogicLayer.chooseFromTheDropDownList(DEFAULT_TIMEOUT, index);
+    }
+
+    @And("User select {string} and {string} of competition")
+    public void userSelectMonthAndYearOfCompetition(final String month, final String year) {
+        businessLogicLayer.selectMonthAndYearOfCompetition(DEFAULT_TIMEOUT, month, year);
+    }
+
+    @When("User finds match between {string} and {string} with score for first team - {int}, and score for second team - {int}")
+    public void userFindsMatchBetweenTeamsWithScoreForFirstTeamAndScoreForSecondTeam(final String team1, final String team2, final int score1, final int score2) {
+        businessLogicLayer.clickMatchWithSpecifiedTeamsAndScore(DEFAULT_TIMEOUT, team1, team2, score1, score2);
+    }
+
+    @Then("User compares displayed scores with scores from previous page and specified scores: {int}, {int}")
+    public void userComparesDisplayedScoresWithScoresFromPreviousPageAndSpecifiedScoresScoreScore(int score1, int score2) {
+        assertTrue(businessLogicLayer.compareDisplayedScoresWithPreviousPageAndSpecifiedScores(DEFAULT_TIMEOUT, score1, score2));
     }
 }

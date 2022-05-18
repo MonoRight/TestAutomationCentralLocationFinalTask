@@ -25,14 +25,14 @@ public class AddingStoryPage extends BasePage {
     private WebElement acceptTermsCheckBox;
     @FindBy(xpath = "//button[@class='button']")
     private WebElement sendStoryButton;
-    @FindBy(xpath = "//div[@class='section-header-group__section-subheader']//p")
+    @FindBy(xpath = resultParagraphsAfterAddingStoryXPath)
     private List<WebElement> resultParagraphsAfterAddingStory;
-    @FindBy(xpath = "//div[@class='input-error-message']")
+    @FindBy(xpath = errorMessagesXPath)
     private List<WebElement> errorMessages;
-    private String errorMessagesXPath = "//div[@class='input-error-message']";
-    private String resultParagraphsAfterAddingStoryXPath = "//div[@class='section-header-group__section-subheader']//p";
+    private final String errorMessagesXPath = "//div[@class='input-error-message']";
+    private final String resultParagraphsAfterAddingStoryXPath = "//div[@class='section-header-group__section-subheader']//p";
 
-    private List<WebElement> formFields = new ArrayList<>(Arrays.asList(storyInput, nameInput, emailInput, telephoneInput, locationInput));
+    private final List<WebElement> formFields = new ArrayList<>(Arrays.asList(storyInput, nameInput, emailInput, telephoneInput, locationInput));
     public AddingStoryPage(WebDriver driver) {
         super(driver);
     }
